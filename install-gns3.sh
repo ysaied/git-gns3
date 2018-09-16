@@ -1,27 +1,34 @@
 #! /bin/bash
 
+echo ""
 echo "Removing Old GNS3 Files"
 echo "====================================="
 sudo rm /lib/systemd/system/gns3.service
 sudo -r rm $HOME/GNS3
 sudo userdel -rf gns3
+
+echo ""
 echo "Removing Previous GNS3 Installation"
 echo "====================================="
 sudo apt-get remove -y gns3-gui > /dev/null
 sudo apt-get remove -y gns3-iou > /dev/null
 
+echo ""
 echo "Adding GNS3 Repository"
 echo "====================================="
 sudo add-apt-repository -y ppa:gns3/ppa > /dev/null
 
+echo ""
 echo "Updating Linux Repository"
 echo "====================================="
 sudo apt-get -y update > /dev/null
 
+echo ""
 echo "Upgrading Linux Packages, that might take few minutes"
 echo "====================================="
 sudo apt-get -y upgrade > /dev/null
 
+echo ""
 echo "Installing GNS3 Dependencies, that might take few minutes" 
 echo "====================================="
 sudo apt-get install -y apt-transport-https > /dev/null
@@ -35,17 +42,20 @@ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository -y "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" > /dev/null
 sudo apt-get install -y docker-ce > /dev/null
 
+echo ""
 echo "Installing GNS3"
 echo "====================================="
 sudo apt-get install -y gns3-gui > /dev/null
 sudo dpkg --add-architecture i386 > /dev/null
 sudo apt-get install -y gns3-iou > /dev/null
 
+echo ""
 echo "Generating gns3 account, please enter password. This will be used to access GNS3"
 echo "====================================="
 sudo useradd -G kvm,ubridge,wireshark,docker,libvirtd,libvirt-qemu -m gns3
 sudo passwd gns3
 
+echo ""
 echo "Running GNS3 as Linux demon"
 echo "====================================="
 (sudo touch /lib/systemd/system/gns3.service)
@@ -71,10 +81,12 @@ WantedBy=multi-user.target " | sudo tee /lib/systemd/system/gns3.service > /dev/
 sudo chmod 755 /lib/systemd/system/gns3.service
 sudo systemctl daemon-reload
 
+echo ""
 echo "Starting GNS3 demon at Linux boot"
 echo "====================================="
 sudo systemctl enable gns3.service
 
+echo ""
 echo "Please Reboot to complete installation ...!!!"
 echo "====================================="
 
