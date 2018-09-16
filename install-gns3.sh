@@ -1,6 +1,7 @@
 #! /bin/bash
 
 sudo pkill gns3
+sudo rm -r /lib/systemd/system/gns3.service
 sudo apt remove -y gns3-gui
 sudo apt remove -y gns3-iou
 
