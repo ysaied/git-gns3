@@ -4,7 +4,9 @@ echo ""
 echo "Removing Old GNS3 Files"
 echo "====================================="
 sudo rm /lib/systemd/system/gns3.service
-sudo -r rm $HOME/GNS3
+sudo rm -r $HOME/GNS3
+sudo rm -r /var/log/gns3
+sudo rm -r /var/run/gns3
 sudo userdel -rf gns3
 
 echo ""
@@ -50,7 +52,7 @@ sudo dpkg --add-architecture i386 > /dev/null
 sudo apt-get install -y gns3-iou > /dev/null
 
 echo ""
-echo "Generating gns3 account, please enter password. This will be used to access GNS3"
+echo "Generating user \"gns3\" account, please enter password. This will be used to access GNS3"
 echo "====================================="
 sudo useradd -G kvm,ubridge,wireshark,docker,libvirtd,libvirt-qemu -m gns3
 sudo passwd gns3
