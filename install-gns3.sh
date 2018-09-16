@@ -21,7 +21,7 @@ sudo apt install -y gns3-iou
 sudo useradd -G kvm,ubridge,wireshark,docker,libvirtd,libvirt-qemu -m gns3
 sudo passwd gns3
 
-(cd /lib/systemd/system && touch gns3.service)
+(cd /lib/systemd/system && sudo touch gns3.service)
 
 echo " [Unit]
 Description=GNS3 server
