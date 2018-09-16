@@ -38,7 +38,7 @@ sudo apt-get install -y apt-transport-https software-properties-common > /dev/nu
 sudo apt-get install -y curl ca-certificates > /dev/null
 sudo apt-get install -y iouyap dynamips ubridge > /dev/null
 sudo apt-get install -y qemu qemu-kvm qemu-utils > /dev/null
-sudo apt-get install -y python python3 python-pip python-pip3 > /dev/null
+sudo apt-get install -y python python3 python-pip python3-pip > /dev/null
 
 sudo apt-get remove docker docker-engine docker.io > /dev/null
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
