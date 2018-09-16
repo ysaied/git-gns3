@@ -3,7 +3,7 @@
 echo ""
 echo "Cleaning-Up old GNS3 files"
 echo "====================================="
-pkill gns3server
+sudo pkill gns3server
 sudo rm /lib/systemd/system/gns3.service
 sudo rm -r $HOME/GNS3
 sudo rm -r /var/log/gns3
