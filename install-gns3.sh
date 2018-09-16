@@ -1,6 +1,6 @@
 #! /bin/bash
 
-sudo pkill gns3
+pkill gns3
 sudo rm /lib/systemd/system/gns3.service
 sudo -r rm $HOME/GNS3
 sudo userdel gns3
