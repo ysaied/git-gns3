@@ -30,7 +30,7 @@ sudo passwd gns3
 
 (sudo touch /lib/systemd/system/gns3.service)
 
-echo " [Unit]
+echo "[Unit]
 Description=GNS3 server
 Wants=network-online.target
 After=network.target network-online.target
@@ -47,9 +47,9 @@ Restart=on-abort
 PIDFile=/var/run/gns3/gns3.pid
 
 [Install]
-WantedBy=multi-user.target " > sudo tee -a /lib/systemd/system/gns3.service
+WantedBy=multi-user.target " | sudo tee /lib/systemd/system/gns3.service > /dev/null
 
-sudo chmod 755 /lib/systemd/system/gns3.service/gns3.service
+sudo chmod 755 /lib/systemd/system/gns3.service
 sudo systemctl daemon-reload
 sudo systemctl enable gns3.service
 
