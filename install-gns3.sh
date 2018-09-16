@@ -48,7 +48,7 @@ sudo apt-get install -y docker-ce > /dev/null
 echo ""
 echo "Installing GNS3"
 echo "====================================="
-sudo pip3 install gns3-server==2.1.9 > /dev/null
+sudo -H pip3 install gns3-server==2.1.9 > /dev/null
 sudo dpkg --add-architecture i386 > /dev/null
 sudo apt-get install -y gns3-iou > /dev/null
 
