@@ -1,7 +1,7 @@
 #! /bin/bash
 
 echo ""
-echo "Removing Old GNS3 Files"
+echo "Cleaning-Up old GNS3 files"
 echo "====================================="
 sudo rm /lib/systemd/system/gns3.service
 sudo rm -r $HOME/GNS3
@@ -74,9 +74,8 @@ Group=gns3
 PermissionsStartOnly=true
 ExecStartPre=/bin/mkdir -p /var/log/gns3 /var/run/gns3
 ExecStartPre=/bin/chown -R gns3:gns3 /var/log/gns3 /var/run/gns3
-ExecStart=/usr/share/gns3/gns3-server/bin/gns3server --log /var/log/gns3/gns3.log --pid /var/run/gns3/gns3.pid --daemon
+ExecStart=/usr/local/bin/gns3server --log /var/log/gns3/gns3.log --pid /var/run/gns3/gns3.pid --daemon
 Restart=on-abort
-PIDFile=/var/run/gns3/gns3.pid
 
 [Install]
 WantedBy=multi-user.target " | sudo tee /lib/systemd/system/gns3.service > /dev/null
