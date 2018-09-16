@@ -3,26 +3,26 @@
 sudo rm /lib/systemd/system/gns3.service
 sudo -r rm $HOME/GNS3
 sudo userdel gns3
-sudo apt remove -y gns3-gui
-sudo apt remove -y gns3-iou
+sudo apt remove -y gns3-gui > /dev/null
+sudo apt remove -y gns3-iou > /dev/null
 
 sudo add-apt-repository -y ppa:gns3/ppa
-sudo apt -y update
-sudo apt -y upgrade
-sudo apt install -y apt-transport-https
-sudo apt install -y ca-certificates
-sudo apt install -y curl
-sudo apt install -y software-properties-common
-sudo apt install -y qemu qemu-kvm qemu-utils
+sudo apt -y update > /dev/null
+sudo apt -y upgrade > /dev/null
+sudo apt install -y apt-transport-https > /dev/null
+sudo apt install -y ca-certificates > /dev/null
+sudo apt install -y curl > /dev/null
+sudo apt install -y software-properties-common > /dev/null
+sudo apt install -y qemu qemu-kvm qemu-utils > /dev/null
 
 sudo apt-get remove docker docker-engine docker.io
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo add-apt-repository -y "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-sudo apt install -y docker-ce
+sudo add-apt-repository -y "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" > /dev/null
+sudo apt install -y docker-ce > /dev/null
 
-sudo apt install -y gns3-gui
-sudo dpkg --add-architecture i386
-sudo apt install -y gns3-iou
+sudo apt install -y gns3-gui > /dev/null
+sudo dpkg --add-architecture i386 > /dev/null
+sudo apt install -y gns3-iou > /dev/null
 
 sudo useradd -G kvm,ubridge,wireshark,docker,libvirtd,libvirt-qemu -m gns3
 sudo passwd gns3
