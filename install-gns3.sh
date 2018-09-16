@@ -3,6 +3,7 @@
 echo ""
 echo "Cleaning-Up old GNS3 files"
 echo "====================================="
+pkill gns3server
 sudo rm /lib/systemd/system/gns3.service
 sudo rm -r $HOME/GNS3
 sudo rm -r /var/log/gns3
@@ -91,7 +92,7 @@ sudo systemctl enable gns3.service
 echo ""
 echo "Reboot required to complete GNS3 Installation ...!!!"
 echo "====================================="
-read -r -p "Would you like to reboot now (y/n)?: \c" answer
+read -r -p "Would you like to reboot now (y/n)?  " answer
 if [[ $answer =~ ^(y|yes)$ ]]
 then 
    (sudo reboot)
