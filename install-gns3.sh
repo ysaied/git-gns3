@@ -45,5 +45,6 @@ WantedBy=multi-user.target " > gns3.service
 sudo chmod 755 gns3.service
 sudo systemctl daemon-reload
 sudo systemctl enable gns3.service
-sudo reboot
+
+echo "Please Reboot"
 
