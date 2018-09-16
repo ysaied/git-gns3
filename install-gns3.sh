@@ -36,7 +36,6 @@ echo "Installing GNS3 Dependencies, that might take few minutes"
 echo "====================================="
 sudo apt-get install -y apt-transport-https software-properties-common > /dev/null
 sudo apt-get install -y curl ca-certificates > /dev/null
-sudo apt-get install -y iouyap dynamips ubridge > /dev/null
 sudo apt-get install -y qemu qemu-kvm qemu-utils > /dev/null
 sudo apt-get install -y python python3 python-pip python3-pip > /dev/null
 
@@ -50,7 +49,7 @@ echo "Installing GNS3"
 echo "====================================="
 sudo -H pip3 install gns3-server==2.1.9 > /dev/null
 sudo dpkg --add-architecture i386 > /dev/null
-sudo apt-get install -y gns3-iou > /dev/null
+sudo apt-get install -y gns3-iou dynamips iouyap ubridge vpcs > /dev/null
 
 echo ""
 echo "Generating user \"gns3\" account, please enter password. This will be used to access GNS3"
@@ -76,6 +75,7 @@ ExecStartPre=/bin/mkdir -p /var/log/gns3 /var/run/gns3
 ExecStartPre=/bin/chown -R gns3:gns3 /var/log/gns3 /var/run/gns3
 ExecStart=/usr/local/bin/gns3server --log /var/log/gns3/gns3.log --pid /var/run/gns3/gns3.pid --daemon
 Restart=on-abort
+PIDFile=/var/run/gns3/gns3.pid
 
 [Install]
 WantedBy=multi-user.target " | sudo tee /lib/systemd/system/gns3.service > /dev/null
@@ -89,6 +89,12 @@ echo "====================================="
 sudo systemctl enable gns3.service
 
 echo ""
-echo "Please reboot to complete installation ...!!!"
+echo "Reboot required to complete GNS3 Installation ...!!!"
 echo "====================================="
-
+read -r -p "Would you like to reboot now (y/n)?: \c" answer
+if [[ $answer =~ ^(y|yes)$ ]]
+then 
+   (sudo reboot)
+else 
+   echo "Have a nice day ...!!!"
+fi
