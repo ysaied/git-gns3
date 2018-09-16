@@ -12,6 +12,7 @@ sudo userdel -rf gns3
 echo ""
 echo "Removing Previous GNS3 Installation"
 echo "====================================="
+sudo apt-get remove -y gns3-server > /dev/null
 sudo apt-get remove -y gns3-gui > /dev/null
 sudo apt-get remove -y gns3-iou > /dev/null
 
@@ -33,11 +34,11 @@ sudo apt-get -y upgrade > /dev/null
 echo ""
 echo "Installing GNS3 Dependencies, that might take few minutes" 
 echo "====================================="
-sudo apt-get install -y apt-transport-https > /dev/null
-sudo apt-get install -y ca-certificates > /dev/null
-sudo apt-get install -y curl > /dev/null
-sudo apt-get install -y software-properties-common > /dev/null
+sudo apt-get install -y apt-transport-https software-properties-common > /dev/null
+sudo apt-get install -y curl ca-certificates > /dev/null
+sudo apt-get install -y iouyap dynamips ubridge > /dev/null
 sudo apt-get install -y qemu qemu-kvm qemu-utils > /dev/null
+sudo apt-get install -y python python3 python-pip python-pip3 > /dev/null
 
 sudo apt-get remove docker docker-engine docker.io > /dev/null
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
@@ -47,6 +48,7 @@ sudo apt-get install -y docker-ce > /dev/null
 echo ""
 echo "Installing GNS3"
 echo "====================================="
+sudo apt-get install -y gns3-server > /dev/null
 sudo apt-get install -y gns3-gui > /dev/null
 sudo dpkg --add-architecture i386 > /dev/null
 sudo apt-get install -y gns3-iou > /dev/null
@@ -89,6 +91,6 @@ echo "====================================="
 sudo systemctl enable gns3.service
 
 echo ""
-echo "Please Reboot to complete installation ...!!!"
+echo "Please reboot to complete installation ...!!!"
 echo "====================================="
 
