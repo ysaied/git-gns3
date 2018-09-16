@@ -1,5 +1,9 @@
 #! /bin/bash
 
+sudo pkill gns3
+sudo apt remove -y gns3-gui
+sudo apt remove -y gns3-iou
+
 sudo add-apt-repository -y ppa:gns3/ppa
 sudo apt -y update
 sudo apt -y upgrade
