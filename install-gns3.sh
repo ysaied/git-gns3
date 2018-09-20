@@ -16,7 +16,7 @@ echo "====================================="
 sudo apt-get remove -y gns3-server > /dev/null
 sudo apt-get remove -y gns3-gui > /dev/null
 sudo apt-get remove -y gns3-iou > /dev/null
-sudo -H pip3 uninstall gns3-server > /dev/null
+sudo -H pip3 uninstall -y gns3-server > /dev/null
 
 echo ""
 echo "Adding GNS3 Repository"
