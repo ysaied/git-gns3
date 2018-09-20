@@ -36,7 +36,7 @@ sudo apt-get -y upgrade > /dev/null
 echo ""
 echo "Installing GNS3 Dependencies, that might take few minutes" 
 echo "====================================="
-sudo apt-get install -y apt-transport-https software-properties-common > /dev/null
+sudo apt-get install -y apt-transport-https software-properties-common qemu-utils > /dev/null
 sudo apt-get install -y curl ca-certificates > /dev/null
 sudo apt-get install -y qemu qemu-kvm qemu-utils > /dev/null
 sudo apt-get install -y python python3 python-pip python3-pip > /dev/null
@@ -49,7 +49,7 @@ sudo apt-get install -y docker-ce > /dev/null
 echo ""
 echo "Installing GNS3"
 echo "====================================="
-sudo -H pip3 install gns3-server==2.1.9 > /dev/null
+sudo -H pip3 install gns3-server==2.1.10 > /dev/null
 sudo dpkg --add-architecture i386 > /dev/null
 sudo apt-get install -y gns3-iou dynamips iouyap ubridge vpcs > /dev/null
 
