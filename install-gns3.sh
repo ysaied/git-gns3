@@ -3,6 +3,7 @@
 echo ""
 echo "Cleaning-Up old GNS3 files"
 echo "====================================="
+sudo dpkg --configure -a > /dev/null
 sudo pkill gns3server
 sudo rm /lib/systemd/system/gns3.service
 sudo rm -r $HOME/GNS3
